@@ -10,7 +10,7 @@ class Stopwatch extends Component {
 	 onStart = () => {
 	 	this.setState({
 	 		watchStatus: true,
-	 		totalTime: this.state.totaltime,
+	 		totalTime: this.state.totalTime,
 	 		watchStart: Date.now() - this.state.totalTime
 	 	});
 	 	this.timer = setInterval (() => {
@@ -33,7 +33,7 @@ class Stopwatch extends Component {
 	 }
 
 	render() {
-		const { totalTime } = this.state;
+		const { totalTime, watchStatus } = this.state;
 		let csecond = ("0" + (Math.floor(totalTime/10) % 100)).slice(-2);
 		let second = ("0" + (Math.floor(totalTime/1000) % 60)).slice(-2);
 		let minute = ("0" + (Math.floor(totalTime/60000) % 60)).slice(-2);
@@ -41,20 +41,19 @@ class Stopwatch extends Component {
 		
 		return(
 			<div className="Stopwatch">
-				<div className="Stopwatch-header" />
 				<div className="Stopwatch-display">	
 					{hour} : {minute} : {second} : {csecond}
-					{this.state.watchStatus===false && this.state.totalTime===0 && (
+					{watchStatus===false && totalTime===0 && (
 						<button onClick={this.onStart}>Start</button>
 					)}
-					{this.state.watchStatus===true && (
+					{watchStatus===true && (
 						<button onClick={this.onStop}>Stop</button>
 					)}
-					{this.state.watchStatus===false && this.state.totalTime >0 && (
-						<button onClick={this.onStart}>Resume</button>
-					)}
-					{this.state.watchStatus===false && this.state.totalTime >0 && (
-						<button onClick={this.resetWatch}>Reset</button>
+					{watchStatus===false && totalTime >0 && (
+						<div>
+							<button onClick={this.onStart}>Resume</button>
+							<button onClick={this.resetWatch}>Reset</button>
+						</div>
 					)}
 				</div>
 			</div>
