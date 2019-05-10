@@ -1,0 +1,56 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.App {
+	text-align: center;
+	font-family: verdan;
+	background-color: #3C3737;
+	height: 100vh;
+}
+
+.Title {
+	color: white;
+	font-size: 50px;
+	padding: 100px;
+}
+
+.Timer {
+	display: flex;
+	justify-content: center;
+}
+
+.Stopwatch {
+	font-family: verdana;
+	font-size: 30px;
+	color: white;
+	background-color: black;
+	margin-left: 50px;
+	margin-right: 50px;
+	border: 2px solid;
+	border-style: dotted;
+	border-radius: 10px;
+	padding: 50px;
+	width: 400px;
+}
+
+button {
+	color: #ffffff;
+	background-color: #696969;
+	font-size: 20px;
+	border: solid 1px transparent;
+	border-radius: 4px;
+	margin: 0 5px;
+}
+
+button:hover {
+	background-color: #2a2a2a;
+}
+
+.Stopwatch button {
+	padding: 12px 30px;
+	font-size: 20px;
+}
+
